@@ -1,0 +1,41 @@
+{% extends 'Base.html'%} {% block content%} {% if messages %} {% for message in messages %} {% if message.tags %}
+<script>
+    alert("{{ message }}")
+</script> {% endif %} {% endfor %} {% endif %} {%load static%}
+
+<style>
+    .div {
+        margin: 0;
+        padding: 0;
+        height: 90vh;
+        text-align: center;
+    }
+    
+    .footer {
+        background: rgba(194, 189, 189, 0.785);
+        height: 60px;
+        width: 100%;
+        position: absolute;
+        bottom: 0px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+</style>
+
+<div class="div">
+    <br><br>
+    <h1>About MediPrognos</h1><br>
+    <p>MediPrognos is a final year project on "Multiple Disease Prediction Using Machine Learning". It is possible to predict more <br> than one disease at a time. So the user doesn’t need to traverse different sites in order to predict the diseases. <br>        We are taking three diseases that are Liver, Diabetes, and Heart.</p>
+
+    <br><br>
+    <h2>Submitted By</h2>
+
+    <p>Ravi Vitthal Tengale - 4GH20CS044 <br> Varshitha J Gowda - 4GH20CS055 <br> Nisarga M J - 4GH20CS031 <br> Rakshitha M N - 4GH20CS042</p>
+
+    <div class="footer">
+        Final Year Project 2024 &copy; Dept. of CS&E - GECH
+    </div>
+
+</div>
+{%endblock%}

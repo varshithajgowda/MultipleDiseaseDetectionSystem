@@ -1,0 +1,172 @@
+{% extends 'Base.html'%} {% block content%} {% if messages %} {% for message in messages %} {% if message.tags %}
+<script>
+    alert("{{ message }}")
+</script> {% endif %} {% endfor %} {% endif %} {%load static%}
+
+<div
+    style="background-image:  url('/media/bg1.jpg'); background-repeat:no-repeat;background-size:cover;  height:900px; width:100%;">
+    <br>
+
+    <br>
+
+
+
+    <br>
+
+
+
+
+    <div class="container" style="background-color:rgba(255, 255, 245, 0.8); height: 650px;">
+        <center>
+            <h1 style="color: black;text-decoration: underline;">Hospitals</h1>
+        </center>
+        <div class="container">
+            <table class="table table-hover" style="background-color: transparent;">
+                <thead>
+                    <tr>
+                        <th>Hospital ID</th>
+                        <th>Hospital Name</th>
+                        <th>Contact Number</th>
+                        <th>Emergency Number</th>
+                        <th>Specialties</th>
+                        <th align="text-center" colspan="2">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for i in data %}
+                    <tr>
+                        <td>{{ i.id }}</td>
+                        <td>{{ i.hospital_name}}</td>
+                        <td>{{ i.contact_number }}</td>
+                        <td>{{ i.emergency_contact }}</td>
+
+                        <td>{{ i.specialties }}</td>
+                        <td>
+                            <input type="button" class="btn btn-primary" data-ids="{{ i.id }}"
+                                data-test-type="{{ i.hospital_name }}" data-sub-test-type="{{ i.contact_number }}"
+                                data-price="{{ i.emergency_contact }}" data-description="{{ i.specialties }}"
+                                data-sample-type="{{ i.address }}" data-test-duration="{{ i.Area }}"
+                                data-preparation-instructions="{{ i.City }}" data-is-active="{{ i.State }}"
+                                data-is-actives="{{ i.website }}" value="View Details" onclick="View(this)">
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="modal fade" id="ViewModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content" style="background-color:rgba(255, 255, 245, 1);">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="myModalLabel">Hospital Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+                    </button>
+                </div>
+                <div class="modal-body" style="background-color:rgba(255, 255, 245, 0.8);">
+                    <form>
+                        <div class="mb-3">
+                            <input type="text" class="form-control" id="modalid" name="modalid" readonly hidden>
+                        </div>
+                        <div class="mb-3">
+                            <label for="modalFullName" class="form-label">Hospital Name</label>
+                            <input type="text" class="form-control" id="modalFullName" readonly>
+                        </div>
+                        <div class="mb-3">
+                            <label for="modalSpecialty" class="form-label">Contact Number</label>
+                            <input type="text" class="form-control" id="modalSpecialty" readonly>
+                        </div>
+                        <div class="mb-3">
+                            <label for="modalEmail" class="form-label">Emergency Contact</label>
+                            <input type="email" class="form-control" id="modalEmail" readonly>
+                        </div>
+                        <div class="mb-3">
+                            <label for="modalPhone" class="form-label">Specialities</label>
+                            <input type="tel" class="form-control" id="modalPhone" readonly>
+                        </div>
+                        <div class="mb-3">
+                            <label for="modalAddress" class="form-label">Address</label>
+                            <textarea class="form-control" id="modalAddress" rows="3" readonly></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="modalQualification" class="form-label">Area</label>
+                            <input type="text" class="form-control" id="modalQualification" readonly>
+                        </div>
+                        <div class="mb-3">
+                            <label for="modalExperienceYears" class="form-label">City</label>
+                            <input type="text" class="form-control" id="modalExperienceYears" readonly>
+                        </div>
+                        <div class="mb-3">
+                            <label for="modalArea" class="form-label">State</label>
+                            <input type="text" class="form-control" id="modalArea" readonly>
+                        </div>
+                        <div class="mb-3">
+                            <label for="modalState" class="form-label">Website</label>
+                            <input type="text" class="form-control" id="modalState" readonly>
+                        </div>
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                    <!-- You can add additional buttons or actions here if needed -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+
+<script>
+    function View(button) {
+        var id = button.getAttribute("data-ids");
+        var fullName = button.getAttribute("data-test-type");
+        var specialty = button.getAttribute("data-sub-test-type");
+        var email = button.getAttribute("data-price");
+        var phone = button.getAttribute("data-description");
+        var address = button.getAttribute("data-sample-type");
+        var qualification = button.getAttribute("data-test-duration");
+        var experienceYears = button.getAttribute("data-preparation-instructions");
+        var area = button.getAttribute("data-is-active");
+        var state = button.getAttribute("data-is-actives");
+
+        // Now you can use these variables to display or manipulate the data as needed
+        console.log("ID:", id);
+        console.log("Full Name:", fullName);
+        console.log("Specialty:", specialty);
+        console.log("Email:", email);
+        // ... and so on for other attributes
+        // Get the modal and input fields
+        var modal = document.getElementById("ViewModal"); // Replace 'myModal' with your modal's ID
+        var modalid = modal.querySelector("#modalid");
+        var modalFullName = modal.querySelector("#modalFullName");
+        var modalSpecialty = modal.querySelector("#modalSpecialty");
+        var modalEmail = modal.querySelector("#modalEmail");
+        var modalPhone = modal.querySelector("#modalPhone");
+        var modalAddress = modal.querySelector("#modalAddress");
+        var modalQualification = modal.querySelector("#modalQualification");
+        var modalExperienceYears = modal.querySelector("#modalExperienceYears");
+        var modalArea = modal.querySelector("#modalArea");
+        var modalState = modal.querySelector("#modalState");
+
+
+        // Populate the input fields in the modal
+        modalid.value = id;
+        modalFullName.value = fullName;
+        modalSpecialty.value = specialty;
+        modalEmail.value = email;
+        modalPhone.value = phone;
+        modalAddress.value = address;
+        modalQualification.value = qualification;
+        modalExperienceYears.value = experienceYears;
+        modalArea.value = area;
+        modalState.value = state;
+
+        // Open the modal
+        var ViewModal = new bootstrap.Modal(document.getElementById("ViewModal"));
+        ViewModal.show();
+    }
+</script>
+{%endblock%}

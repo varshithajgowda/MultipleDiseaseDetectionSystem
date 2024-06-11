@@ -1,0 +1,44 @@
+{% extends 'Base.html'%} {% block content%} {% if messages %} {% for message in messages %} {% if message.tags %}
+<script>
+    alert("{{ message }}")
+</script> {% endif %} {% endfor %} {% endif %} {%load static%}
+<div style="background-image:  url('/media/bg1.jpg'); background-repeat:no-repeat;background-size:cover;  height:800px; width:100%;">
+    <br>
+    <br>
+    <h2 style="text-align: center;color: white;">View Users</h2>
+    <br>
+    <div class="container">
+        <table class=" table table-light table-stripped table-hover " style="background-color: rgba(30, 51, 51, 0.532)" ;>
+
+            <thead>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Phonenumber</th>
+                <th>Email Address</th>
+                <th>Username</th>
+                <th>Address</th>
+                <th>State</th>
+                <th>City</th>
+            </thead>
+
+            <tbody>
+                {%for i in details%}
+                <tr>
+                    <td>{{i.id}}</td>
+                    <td>{{i.Name}}</td>
+                    <td>{{i.Phone}}</td>
+                    <td>{{i.Email}}</td>
+                    <td>{{i.Username}}</td>
+                    <td>{{i.Address}}</td>
+                    <td>{{i.State}}</td>
+                    <td>{{i.City}}</td>
+                </tr>
+                {%endfor%}
+            </tbody>
+
+        </table>
+    </div>
+
+
+</div>
+{% endblock %}

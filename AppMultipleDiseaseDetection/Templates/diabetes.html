@@ -1,0 +1,174 @@
+{% extends 'Base.html'%} {% block content%} {% if messages %} {% for message in messages %} {% if message.tags %}
+<script>
+    alert("{{ message }}")
+</script> {% endif %} {% endfor %} {% endif %} {%load static%}
+
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        padding-top: 150px;
+        background-color: #ffffff;
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    .form-group {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        margin-bottom: 15px;
+    }
+
+    label {
+        font-weight: bold;
+    }
+
+    input[type="text"],
+    select {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    button {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        text-align: center;
+        /* Center-align the button */
+        width: 100%;
+        /* Make the button 100% width within its container */
+    }
+</style>
+</head>
+
+<body>
+    <div
+        style="background-image:  url('/media/bg1.jpg'); background-repeat:no-repeat;background-size:cover;  height:1050px; width:100%;">
+        <br>
+
+        <div class="container">
+            <h1>Medical Information Form</h1>
+            <form method="POST" action="/diabetes/" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="age">Age (in years):</label>
+                    <input type="number" id="age" name="age" step="0.01" required>
+                    <label for="gender">Gender (Male/Female):</label>
+                    <select id="gender" name="gender" required>
+                        <option value="1">Male</option>
+                        <option value="0">Female</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="polyuria">Polyuria (Yes/No):</label>
+                    <select id="polyuria" name="polyuria" required>
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+                    </select>
+                    <label for="polydipsia">Polydipsia (Yes/No):</label>
+                    <select id="polydipsia" name="polydipsia" required>
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="sudden_weight_loss">Sudden Weight Loss (Yes/No):</label>
+                    <select id="sudden_weight_loss" name="sudden_weight_loss" required>
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+                    </select>
+                    <label for="weakness">Weakness (Yes/No):</label>
+                    <select id="weakness" name="weakness" required>
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="polyphagia">Polyphagia (Yes/No):</label>
+                    <select id="polyphagia" name="polyphagia" required>
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+                    </select>
+                    <label for="genital_thrush">Genital Thrush (Yes/No):</label>
+                    <select id="genital_thrush" name="genital_thrush" required>
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="visual_blurring">Visual Blurring (Yes/No):</label>
+                    <select id="visual_blurring" name="visual_blurring" required>
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+                    </select>
+                    <label for="itching">Itching (Yes/No):</label>
+                    <select id="itching" name="itching" required>
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="irritability">Irritability (Yes/No):</label>
+                    <select id="irritability" name="irritability" required>
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+                    </select>
+                    <label for="delayed_healing">Delayed Healing (Yes/No):</label>
+                    <select id="delayed_healing" name="delayed_healing" required>
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="partial_paresis">Partial Paresis (Yes/No):</label>
+                    <select id="partial_paresis" name="partial_paresis" required>
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+                    </select>
+                    <label for="muscle_stiffness">Muscle Stiffness (Yes/No):</label>
+                    <select id="muscle_stiffness" name="muscle_stiffness" required>
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="alopecia">Alopecia (Yes/No):</label>
+                    <select id="alopecia" name="alopecia" required>
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+                    </select>
+                    <label for="obesity">Obesity (Yes/No):</label>
+                    <select id="obesity" name="obesity" required>
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+                    </select>
+                </div>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+</body>
+
+</html>
+
+</div>
+{%endblock%}

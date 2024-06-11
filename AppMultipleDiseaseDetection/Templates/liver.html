@@ -1,0 +1,117 @@
+{% extends 'Base.html'%} {% block content %} {% if messages %} {% for message in messages %} {% if message.tags %}
+<script>
+    alert("{{ message }}")
+</script> {% endif %} {% endfor %} {% endif %} {% load static %}
+
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+    }
+
+    .container {
+        padding: 20px;
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 10px;
+        width: 40%;
+        margin: 0 auto;
+        margin-top: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+        font-size: 36px;
+        margin-bottom: 20px;
+        color: #333;
+        text-align: center;
+    }
+
+    label {
+        display: block;
+        font-weight: bold;
+        margin-top: 7px;
+        color: #333;
+    }
+
+    input[type="text"],
+    select {
+        width: calc(100% - 20px);
+        padding: 7px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-top: 5px;
+        font-size: 16px;
+    }
+
+    select {
+        background-color: #fff;
+    }
+
+    #button {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        text-align: center;
+        margin: 20px auto;
+        /* Center-align the button */
+        width: calc(100% - 20px);
+        /* Make the button 100% width within its container */
+    }
+</style>
+
+
+<body>
+    <div
+        style="background-image: url('/media/bg1.jpg'); background-repeat: no-repeat; background-size: cover; height: 1000px; width: 100%;">
+        <br>
+
+        <div class="container">
+            <h1>Medical Assessment Form</h1>
+            <form action="/liver/" method="POST" enctype="multipart/form-data">
+                {% csrf_token%}
+                <label for="age">Age (in years):</label>
+                <input type="text" id="age" name="age" required>
+
+                <label for="gender">Gender (Female/Male):</label>
+                <select id="gender" name="gender" required>
+                    <option value="0">Female</option>
+                    <option value="1">Male</option>
+                </select>
+
+                <label for="total_bilirubin">Total Bilirubin(Values to be entered 0.1,20.3....):</label>
+                <input type="text" id="total_bilirubin" name="total_bilirubin" required>
+
+                <label for="direct_bilirubin">Direct Bilirubin(Values to be entered 0.1,20.3....):</label>
+                <input type="text" id="direct_bilirubin" name="direct_bilirubin" required>
+
+                <label for="alkaline_phosphatase">Alkaline Phosphatase(Values to be entered 187,699,490....):</label>
+                <input type="text" id="alkaline_phosphatase" name="alkaline_phosphatase" required>
+
+                <label for="alt">Alamine Aminotransferase (ALT)(Values to be entered 52,87,1680...):</label>
+                <input type="text" id="alt" name="alt" required>
+
+                <label for="ast">Aspartate Aminotransferase (AST)(ALT)(Values to be entered 64,149,2946...):</label>
+                <input type="text" id="ast" name="ast" required>
+
+                <label for="total_proteins">Total Proteins(ALT)(Values to be entered 4.1,4.8,7.9...):</label>
+                <input type="text" id="total_proteins" name="total_proteins" required>
+
+                <label for="albumin">Albumin(ALT)(Values to be entered 3.3,3.2,3.4...):</label>
+                <input type="text" id="albumin" name="albumin" required>
+
+                <label for="albumin_globulin_ratio">Albumin and Globulin Ratio(ALT)(Values to be entered 0.9
+                    ,0.74,0.89...):</label>
+                <input type="text" id="albumin_globulin_ratio" name="albumin_globulin_ratio" required>
+
+                <input type="submit" value="Submit" id="button">
+            </form>
+        </div>
+</body>
+
+</html>
+</div>
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends 'Base.html'%} {% block content%} {% if messages %} {% for message in messages %} {% if message.tags %}
+<script>
+  alert("{{ message }}")
+</script>
+{% endif %} {% endfor %} {% endif %} {%load static%}
+
+<div
+  style="background-image:  url('/media/bg1.jpg'); background-repeat:no-repeat;background-size:cover;  height:800px; width:100%;">
+  <br><br><br>
+  <div class="container"
+    style="background: rgba(199, 192, 192, 0.3);padding-left:50px;width:100%;border-radius:10px;border-color:black;">
+    <br><br>
+    <h2 style="color:black;text-align: center;">Prediction For...</h3>
+      <br> <br>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="row">
+            <div class="col-md-4">
+              <h4 style="color: black;text-align: left;padding-left: 90px;">Liver Disease</h4>
+              <a href="/liver/">
+                <img src="/media/liver.jpeg" alt="Girl in a jacket" width="300" height="300"
+                  style="border-radius: 50%;align-items:center;">
+              </a>
+            </div>
+            <div class="col-md-4">
+              <h4 style="color: black;text-align: left;padding-left: 80px;">Heart Disease</h4>
+              <a href="/heart/">
+                <img src="/media/heart.png" alt="Girl in a jacket" width="300" height="300"
+                  style="border-radius: 50%;align-items:center;">
+              </a>
+            </div>
+            <div class="col-md-4">
+              <h4 style="color: black;text-align: left;padding-left: 90px;">Diabetes</h4>
+              <a href="/diabetes/">
+                <img src="/media/diabetes.png" alt="Girl in a jacket" width="300" height="300"
+                  style="border-radius: 50%;align-items:center;">
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <br>
+      <br>
+  </div>
+</div>
+
+</div>
+{%endblock%}

@@ -1,0 +1,153 @@
+{% extends 'Base.html' %} {% block content %} {% if messages %} {% for message in messages %} {% if message.tags %}
+<script>
+    alert("{{ message }}")
+</script> {% endif %} {% endfor %} {% endif %} {% load static %}
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+    }
+
+    .container {
+        padding: 20px;
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 10px;
+        width: 40%;
+        margin: 0 auto;
+        margin-top: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+        font-size: 36px;
+        margin-bottom: 20px;
+        color: #333;
+        text-align: center;
+    }
+
+    label {
+        display: block;
+        font-weight: bold;
+        margin-top: 7px;
+        color: #333;
+    }
+
+    input[type="text"],
+    select {
+        width: calc(100% - 20px);
+        padding: 7px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-top: 5px;
+        font-size: 16px;
+    }
+
+    select {
+        background-color: #fff;
+    }
+
+    #button {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        text-align: center;
+        margin: 20px auto;
+        /* Center-align the button */
+        width: calc(100% - 20px);
+        /* Make the button 100% width within its container */
+    }
+</style>
+
+<body>
+
+
+    <div
+        style="background-image:  url('/media/bg1.jpg'); background-repeat:no-repeat;background-size:cover;  height:1200px; width:100%;">
+        <br>
+
+        <div class="container">
+            <h1>Cardiac Health Assessment Form</h1>
+            <form action="/heart/" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <label for="age">Age (in years):</label>
+                <input type="text" id="age" name="age" required>
+
+                <label for="sex">Sex:</label>
+                <select id="sex" name="sex" required>
+                    <option value="0">Female</option>
+                    <option value="1">Male</option>
+                </select>
+
+                <label for="chest_pain">Chest Pain Type:</label>
+                <select id="chest_pain" name="chest_pain" required>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </select>
+
+                <label for="resting_bp">Resting Blood Pressure (Valid range: 94 to 200):</label>
+                <input type="text" id="resting_bp" name="resting_bp" required>
+
+                <label for="cholesterol">Serum Cholesterol(Valid range: 126 to 564):</label>
+                <input type="text" id="cholesterol" name="cholesterol" required>
+
+                <label for="fasting_sugar">Fasting Blood Sugar:</label>
+                <select id="fasting_sugar" name="fasting_sugar" required>
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </select>
+
+                <label for="resting_ecg">Resting Electrocardiographic Results:</label>
+                <select id="resting_ecg" name="resting_ecg" required>
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                </select>
+
+                <label for="max_heart_rate">Max Heart Rate (Valid range: 71 to 202):</label>
+                <input type="text" id="max_heart_rate" name="max_heart_rate" required>
+
+                <label for="exercise_angina">Exercise Induced Angina:</label>
+                <select id="exercise_angina" name="exercise_angina" required>
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </select>
+
+                <label for="oldpeak">Oldpeak (Valid range: 0.1 to 10):</label>
+                <input type="text" id="oldpeak" name="oldpeak" required>
+
+                <label for="st_segment">ST Segment:</label>
+                <select id="st_segment" name="st_segment" required>
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                </select>
+
+                <label for="num_vessels">Number of Major Vessels:</label>
+                <select id="num_vessels" name="num_vessels" required>
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+
+                <label for="thal">Thal:</label>
+                <select id="thal" name="thal" required>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                </select>
+
+                <input type="submit" value="Submit" id="button">
+            </form>
+        </div>
+    </div>
+</body>
+{% endblock %}

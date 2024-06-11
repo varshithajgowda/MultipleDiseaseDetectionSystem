@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Include Bootstrap JavaScript -->
+    <title>MULTIPLE DISEASE DETECTION SYSTEM</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+        crossorigin="anonymous"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital@1&family=Poppins:ital,wght@0,400;1,300&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg" style="background:rgba(194, 189, 189, 0.785);">
+        <div class="container-fluid">
+
+            <div class="headingOne">
+                <a class="navbar brand navbar-danger" href="#"
+                    style="color:black;font-weight: bold;height:50px;font-size:20px;">Medi Prognos</a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="nav justify-content-center">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url 'Home'%}"
+                            style="color: black;font-weight: bold;font-size:20px;color: black;">Home</a>
+                    </li>
+                    {% if request.session.type_id == 'User' %}
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url 'prediction'%}"
+                            style="color:black;font-weight: bold;font-size:20px;color: black;">Prediction</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url 'chatbot'%}"
+                            style="color:black;font-weight: bold;font-size:20px;color: black;">Chatbot</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url 'view_hospitals'%}"
+                            style="color:black;font-weight: bold;font-size:20px;color: black;">View Hospitals</a>
+                    </li>
+
+                    {% elif request.session.type_id == 'Admin' %}
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url 'hospitals'%}"
+                            style="color:black;font-weight: bold;font-size:20px;color: black;">Hospitals</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url 'view_users'%}"
+                            style="color:black;font-weight: bold;font-size:20px;color: black;">View Users</a>
+                    </li>
+
+
+                    {% endif %}
+                </ul>
+
+                </ul>
+                {% if request.session.login == 'Yes' %}
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="{% url 'Logout'%}"
+                            style="color:black;font-weight: bold;font-size:20px;color: black;">LogOut</a></li>
+                    {% else %}
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="{% url 'about'%}"
+                                style="color:black;font-weight: bold;font-size:20px;color: black;">About Us</a></li>
+                        <li class="nav-item dropdown">
+                            <a style="color:black;font-weight: bold;font-size:20px;color: black;"
+                                class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Login
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+
+
+                                <li><a class="dropdown-item" href="{% url 'Admin_Login'%}">Admin</a></li>
+                                <li><a class="dropdown-item" href="{% url 'User_Login'%}">User</a></li>
+
+                            </ul>
+                        </li>
+                        {% endif %}
+                    </ul>
+            </div>
+    </nav>
+
+
+
+    {% block content %} {% endblock %}
+
+
+
+
+
+</body>
+
+</html>

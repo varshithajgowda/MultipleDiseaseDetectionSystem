@@ -1,0 +1,94 @@
+{% extends 'base.html'%} {% block content%} {% if messages %} {% for message in messages %} {% if message.tags %}
+<script>
+    alert("{{ message }}")
+</script> {% endif %} {% endfor %} {% endif %}
+
+<div style="background: url('/media/bg1.jpg'); background-repeat:no-repeat;background-size:cover;  height:800px; width: 100%;">
+    <br><br>
+    <div class="container" style="background: rgba(44, 130, 201, 0.6);padding-left:10px;width:100%;border-radius:10px;">
+        <br><br>
+        <h2 style="color:white;text-align: center;">Registeration</h3>
+
+            <br>
+            <br>
+            <form method="POST" action="/User_Registration/" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="form-floating col-md-6">
+                        <input type="text" class="form-control" id="floatingInput" name="Name" placeholder="1.0" min="0" max="10">
+                        <label for="floatingSelectGrid">Full Name</label>
+                    </div>
+
+
+
+
+                    <div class="form-floating col-md-3">
+                        <input type="number" class="form-control" id="floatingInput" name="Phone" placeholder="1.0">
+                        <label for="floatingInput">Phone number</label>
+                    </div>
+                    <div class="form-floating col-md-3">
+                        <input type="email" class="form-control" id="floatingInput" name="Email" placeholder="1.0" min="0" max="10">
+                        <label for="floatingInput">Email Address</label>
+                    </div>
+
+                </div>
+                <br>
+                <br>
+                <div class="row">
+
+                    <div class="form-floating col-md-6">
+                        <input type="text" class="form-control" id="floatingInput" name="Address" placeholder="1.0" min="0" max="10">
+                        <label for="floatingInput">Address</label>
+                    </div>
+                    <div class="form-floating col-md-3">
+                        <input type="text" class="form-control" id="floatingInput" name="State" placeholder="1.0" min="0" max="10">
+                        <label for="floatingInput">State</label>
+                    </div>
+                    <div class="form-floating col-md-3">
+                        <input type="text" class="form-control" id="floatingInput" name="City" placeholder="1.0" min="0" max="10">
+                        <label for="floatingInput">City</label>
+                    </div>
+
+                </div>
+                <br>
+                <br>
+                <div class="row">
+                    <div class="form-floating col-md-3">
+
+                    </div>
+                    <div class="form-floating col-md-3">
+                        <input type="text" class="form-control" id="floatingInput" name="Username" placeholder="1.0" min="0" max="10">
+                        <label for="floatingInput">Username</label>
+                    </div>
+                    <div class="form-floating col-md-3">
+                        <input type="password" class="form-control" id="floatingInput" name="Password" placeholder="1.0" min="0" max="10">
+                        <label for="floatingInput">Password</label>
+                    </div>
+                    <div class="form-floating col-md-3">
+
+                    </div>
+                </div>
+                <br><br>
+                <div class="row">
+
+                    <center><button type="submit" style="height:50px;width:100px;border-radius:10px;" class="btn btn-light"><b>SUBMIT</b></button></center>
+
+
+
+                    <br>
+                    <br>
+                </div>
+                <br>
+                <br>
+    </div>
+
+    </form>
+
+</div>
+
+</div>
+
+
+
+
+{% endblock%}

@@ -1,0 +1,93 @@
+{"intents": [
+    {"tag": "greeting",
+     "patterns": ["Hi", "Hey", "Is anyone there?", "Hie","Hello", "Hay"],
+     "responses": ["Hello,Tell me how can assist you", "Hi,Tell me your problem to assist you", "Hi there,How can I support you"]
+    },
+    
+    {"tag": "goodbye",
+     "patterns": ["Bye", "See you later", "Goodbye"],
+     "responses": ["See you later", "Have a nice day", "Bye! Come back again"]
+    },
+    {"tag": "thanks",
+     "patterns": ["Thanks", "Thank you", "That's helpful", "Thanks for the help"],
+     "responses": ["Happy to help!", "Any time!", "My pleasure", "You're most welcome!"]
+    },
+    {"tag": "about",
+     "patterns": ["Who are you?", "What are you?", "Who you are?" ],
+     "responses": ["I.m Medico, your bot assistant", "I'm Medico, an Artificial Intelligent bot"]
+    },
+    {"tag": "name",
+    "patterns": ["what is your name", "what should I call you", "whats your name?"],
+    "responses": ["You can call me Medico.", "I'm Medico!", "Just call me as Medico"]
+    },
+    {"tag": "help",
+    "patterns": ["Could you help me?", "give me a hand please", "Can you help?", "What can you do for me?", "I need a support", "I need a help", "support me please"],
+    "responses": ["Tell me how can assist you", "Tell me your problem to assist you", "Yes Sure, How can I support you"]
+    },
+     {"tag": "thanks",
+    "patterns": ["Thanks", "Thank you", "That's helpful", "Awesome, thanks", "Thanks for helping me"],
+    "responses": ["Happy to help!", "Any time!", "My pleasure"],
+    "context": [""]
+    },
+    {"tag": "liver",
+    "patterns": [
+    "What are the common risk factors for liver diseases?",
+    "Can you explain how lifestyle choices like diet and alcohol consumption affect liver health?",
+    "How is liver health assessed or tested by healthcare professionals?",
+    "What types of blood tests are typically performed to check liver function?",
+    "What lifestyle changes can help reduce the risk of liver diseases?",
+    "Are there specific foods or supplements that promote liver health?"
+    ],
+    "responses": [
+    "Liver diseases can have various risk factors, including excessive alcohol consumption, viral infections, and obesity.",
+    "Lifestyle choices, such as a high-fat diet and excessive alcohol consumption, can strain the liver and increase the risk of liver diseases.",
+    "Healthcare professionals assess liver health through various tests, including blood tests to check liver enzymes and function.",
+    "Common blood tests for liver function include ALT, AST, and bilirubin levels. An ultrasound or CT scan may also be used to visualize the liver.",
+    "To reduce the risk of liver diseases, maintain a healthy weight, limit alcohol intake, and avoid high-fat diets.",
+    "Certain foods, such as leafy greens, beets, and turmeric, can support liver health. Consult a healthcare professional before taking supplements."
+    ],
+    "context": ["risk_factors", "testing_diagnosis", "general_advice"]
+    },
+    {
+    "tag": "heart",
+    "patterns": [
+    "What are the major risk factors for heart diseases, including genetic and lifestyle-related factors?",
+    "How does family history impact the risk of heart problems?",
+    "What types of tests can detect heart issues early on?",
+    "How is blood pressure measured and what is the significance of blood pressure in heart health?",
+    "What steps can individuals take to maintain a healthy heart, including diet and exercise recommendations?",
+    "Are there specific warning signs that people should look out for regarding their heart health?"
+    ],
+    "responses": [
+    "Major risk factors for heart diseases include high blood pressure, high cholesterol, smoking, obesity, and a sedentary lifestyle.",
+    "Family history can influence the risk of heart problems. If your family has a history of heart disease, you may have a higher risk.",
+    "Tests for early detection of heart issues include electrocardiograms (ECG or EKG), echocardiograms, and stress tests.",
+    "Blood pressure is measured using a sphygmomanometer. It's a critical indicator of heart health; high blood pressure can strain the heart.",
+    "To maintain a healthy heart, adopt a balanced diet rich in fruits and vegetables, exercise regularly, and quit smoking.",
+    "Common warning signs of heart problems include chest pain, shortness of breath, and irregular heartbeats. Seek medical help if you experience these symptoms."
+    ],
+    "context": ["risk_factors", "testing_diagnosis", "general_advice"]
+    },
+    {
+    "tag": "diabetes",
+    "patterns": [
+    "What are the key risk factors for diabetes, both type 1 and type 2?",
+    "How does age affect the risk of developing diabetes?",
+    "What are the standard tests for diagnosing diabetes?",
+    "How can individuals monitor their blood sugar levels at home?",
+    "What dietary guidelines are recommended for individuals at risk of or living with diabetes?",
+    "What are the benefits of regular physical activity in diabetes prevention and management?"
+    ],
+    "responses": [
+    "Key risk factors for diabetes include family history, obesity, sedentary lifestyle, and genetics. Type 1 diabetes is often diagnosed in childhood, while type 2 is more common in adults.",
+    "Age can increase the risk of type 2 diabetes, particularly as people get older. However, type 1 diabetes can develop at any age.",
+    "Standard tests for diagnosing diabetes include fasting blood sugar tests, oral glucose tolerance tests (OGTT), and HbA1c tests.",
+    "Individuals can monitor their blood sugar levels at home using glucometers. Regular monitoring is essential for managing diabetes.",
+    "Dietary guidelines for diabetes include controlling carbohydrate intake, choosing complex carbs, and avoiding sugary foods.",
+    "Regular physical activity helps improve insulin sensitivity and manage blood sugar levels in diabetes. It also supports overall health."
+    ],
+    "context": ["risk_factors", "testing_diagnosis", "general_advice"]
+    }
+    
+   ]
+}
